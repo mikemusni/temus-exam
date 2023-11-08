@@ -1,0 +1,13 @@
+FROM node:16-alpine
+WORKDIR /exam-be
+COPY . .
+RUN yarn install
+ENV PORT=9000
+ENV DB_HOST=192.168.2.2
+ENV DB_PORT=5432
+ENV DB_USERNAME=postgres
+ENV DB_PASSWORD=root
+ENV DB_DATABASE=exam
+EXPOSE 9000
+RUN yarn build
+CMD yarn start
